@@ -4,17 +4,14 @@ function replaceStrings(string, pattern, replacement) {
     var resultArray = []
     var resultString = ''
     var indexesToAdd = replacement.length - pattern.length
-    var numberOfreplacemets = true
+    var numberOfreplacemets = 1
 
     for (var i = 0; i < string.length; i++) {
         resultArray[i] = string[i]
     }
     //TODO-> check if the type of replacement is a string to only replace 1 time. If the type of replacement is a function  then the function will replace EACH match of the replacement inside  the  string
-    if (typeof replacement === 'function')
-        numberOfreplacemets = true
-    else
-        numberOfreplacemets = false
-    for (var i = 0; i < resultArray.length && numberOfreplacemets; i++) {
+
+    for (var i = 0; i < resultArray.length && numberOfreplacemets >= 1; i++) {
         toCompare = ''
         for (var j = 0; j < pattern.length; j++) {
             toCompare = toCompare + resultArray[i + j]
@@ -43,6 +40,10 @@ function replaceStrings(string, pattern, replacement) {
                 }
             }
         }
+        if (typeof replacement === 'function')
+            numberOfreplacemets = Infinity
+        else
+            numberOfreplacemets--
     }
 
     for (var i = 0; i < resultArray.length; i++) {

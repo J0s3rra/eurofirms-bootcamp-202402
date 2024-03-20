@@ -73,10 +73,9 @@ var users2 = [
 ]
 
 
-var userData = users.reduce(function (accumulator, currentValue) {
-    delete currentValue.id
-    delete currentValue.saved
-    accumulator.push(currentValue)
+var userData = users2.reduce(function (accumulator, currentValue) {
+    var newUser = { name: currentValue.name, email: currentValue.email }
+    accumulator.push(newUser)
     return accumulator
 }, [])
 

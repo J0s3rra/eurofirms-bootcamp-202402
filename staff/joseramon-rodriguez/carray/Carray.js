@@ -44,4 +44,61 @@ Carray.prototype.map = function (callback) {
     return results
 }
 
+Carray.prototype.push = function () {
+    var elements = arguments
+
+    for (var i = 0; i < elements.length; i++) {
+        var element = elements[i]
+
+        this[this.length] = element
+
+        this.length++
+    }
+    return this.length
+}
+
+Carray.prototype.pop = function () {
+    var result = this[this.length - 1]
+
+    delete this[this.length - 1]
+
+    this.length--
+
+    return result
+}
+
+Carray.prototype.shift = function () {
+    var deletedElement = this[0]
+
+    for (var i = 0; i < this.length - 1; i++) {
+        this[i] = this[i + 1]
+    }
+
+    this.length--
+
+    delete this[this.length]
+
+    return deletedElement
+}
+
+Carray.prototype.unshift = function () {
+    var elements = arguments
+
+    for (var i = 0; i < this.length; i++) {
+        this[i + elements.length] = this[i]
+    }
+    for (var i = 0; i < elements.length; i++) {
+        this[i] = elements[i]
+        this.length++
+    }
+    return this.length
+}
+
+Carray.prototype.every = function (callback) {
+    for (var i = 0; i < this.length; i++) {
+        if (!callback(this[i]))
+            return false
+    }
+    return true
+}
 module.exports = Carray

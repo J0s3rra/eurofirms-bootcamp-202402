@@ -103,3 +103,103 @@ var namesInUpperCase = names.map(function (name) {
 
 console.log(namesInUpperCase)
 // Carray { 0: 'ANA', 1: 'ADRIAN', 2: 'JAVIER', 3: 'SERGIO', 4: 'BERNAT', 5: 'MAITE', 6: 'SARA', length: 7 }
+
+console.log('> push')
+
+console.log('CASE add 40 to c')
+
+var c = new Carray(10, 20, 30)
+
+c.push(40)
+
+console.log(c)
+// Carray { 0: 10, 1: 20, 2: 30, 3: 40 length: 4 }
+
+console.log('CASE add 40,50,60 to c')
+
+var c = new Carray(10, 20, 30)
+
+c.push(40, 50, 60)
+
+console.log(c)
+// Carray { 0: 10, 1: 20, 2: 30, 3: 40, 4: 50, 5: 60 length: 6}
+
+console.log('> pop')
+
+console.log('CASE remove the last element from c and return it')
+
+var c = new Carray(10, 20, 30)
+
+console.log('before pop()')
+console.log(c)
+console.log('last element returned')
+console.log(c.pop())
+console.log('after pop()')
+console.log(c)
+
+// Carray { 0: 10, 1: 20, 2: 30, 40 length: 4 }
+
+console.log('> shift')
+
+console.log('CASE remove the first element from c and return the new length of c')
+
+var c = new Carray(10, 20, 30)
+
+console.log('before shift()')
+console.log(c)
+console.log('first element returned')
+console.log(c.shift())
+console.log('after shift()')
+console.log(c)
+
+// Carray { 0: 20, 1: 30, length: 2 }
+
+console.log('> unshift')
+
+console.log('CASE add 40 to the beggining of c and return the new length of c')
+
+var c = new Carray(10, 20, 30)
+
+console.log('before unshift()')
+console.log(c)
+
+console.log(c.unshift(40))
+
+console.log('after unshift()')
+console.log(c)
+
+// Carray { 0: 40, 1: 10, 2: 20, 3: 30 length: 4 }
+
+console.log('CASE add 40, 50 , 60 to the beggining of c and return the new length of c')
+
+var c = new Carray(10, 20, 30)
+
+console.log('before unshift()')
+console.log(c)
+
+console.log(c.unshift(40, 50, 60))
+
+console.log('after unshift()')
+console.log(c)
+
+// Carray { 0: 40, 1: 50, 2: 60, 3: 10, 4: 20, 5: 30, length: 6 }
+
+console.log('> every')
+
+console.log('CASE check if every number in c is less than 40 (via callback) and return a boolean value')
+
+var c = new Carray(10, 20, 30)
+
+console.log(c)
+console.log(c.every(num => num < 40))
+// true
+
+console.log('CASE check if every number in c is less than 40 (via callback) and return a boolean value')
+
+var c = new Carray(10, 20, 30, 60)
+
+console.log(c)
+console.log(c.every((num) => num < 40))
+//console.log(c.every(function (num) { return num < 40 }))
+// false
+

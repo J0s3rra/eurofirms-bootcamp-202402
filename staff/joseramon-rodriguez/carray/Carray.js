@@ -84,7 +84,7 @@ Carray.prototype.shift = function () {
 Carray.prototype.unshift = function () {
     var elements = arguments
 
-    for (var i = 0; i < this.length; i++) {
+    for (var i = this.length - 1; i >= 0; i--) {
         this[i + elements.length] = this[i]
     }
     for (var i = 0; i < elements.length; i++) {
